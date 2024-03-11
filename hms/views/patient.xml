@@ -1,0 +1,72 @@
+<odoo>
+    <record id="hms_patient_view" model="ir.ui.view">
+        <field name="name">Patient View</field>
+        <field name="model">hms.patient</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="firstname"/>
+                <field name="lastname"/>
+                <field name="age"/>
+                <field name="address"/>
+                <field name="blood_type"/>
+                <field name="state"/>
+
+            </tree>
+        </field>
+    </record>
+
+    <record id="hms_patient_form_view" model="ir.ui.view">
+        <field name="name">hms.patient.form.view</field>
+        <field name="model">hms.patient</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+<!--                    <button name="action_add_history" string="Add History" type="object"-->
+<!--                            class="btn btn-outline-success"/>-->
+<!--                    <field name="state" widget="statusbar"/>-->
+                </header>
+                <sheet>
+                    <group>
+                        <group string="Patient Genral Info">
+                            <field name="firstname"/>
+                            <field name="lastname"/>
+                            <field name="address"/>
+                            <field name="age"/>
+                            <field name="birthdate"/>
+                            <field name="image" widget="image"/>
+                        </group>
+
+                        <group string="Patient Helth Info">
+                            <field name="cr_ratio" required="pcr == True"/>
+                            <field name="blood_type"/>
+                            <field name="pcr"/>
+                            <field name="state"/>
+
+                        </group>
+
+<!--                        <group string="Additional Info">-->
+<!--                            <field name="department_id" domain="[('is_opened', '=', 'True')]"/>-->
+<!--                            <field name="department_capacity"/>-->
+<!--                            <field name="doctor_ids" widget="many2many_tags" readonly="department_id == False"/>-->
+<!--                        </group>-->
+
+<!--                        <group string="History Log">-->
+<!--                            <field name="history_ids" invisible="age &lt; 50">-->
+<!--                                <tree>-->
+<!--                                    <field name="current_date"/>-->
+<!--                                    <field name="description"/>-->
+<!--                                </tree>-->
+<!--                            </field>-->
+
+<!--                        </group>-->
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="hms_patient_action" model="ir.actions.act_window">
+        <field name="name">Patients</field>
+        <field name="res_model">hms.patient</field>
+    </record>
+
+</odoo>
